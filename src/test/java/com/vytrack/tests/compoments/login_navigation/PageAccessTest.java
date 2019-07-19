@@ -43,10 +43,14 @@ public class PageAccessTest {
         LoginUtil.login(driver, "storemanager209", "UserUser123");
 
         NavigateToTab.navigateToModule(driver, "Fleet", "Vehicle Contracts");
-        String actualPage = driver.getTitle();
-        String expectedPage = "All - Vehicle Contract - Entities - System - Car - Entities - System";
-        Assert.assertEquals(actualPage, expectedPage);
+//        String actualPage = driver.getTitle();
+//        String expectedPage = "All - Vehicle Contract - Entities - System - Car - Entities - System";
 
+
+        String actualPage = driver.findElement(By.cssSelector("h1[class='oro-subtitle']")).getText();
+
+        String expectedPage = "All Vehicle Contract";
+        Assert.assertEquals(actualPage, expectedPage);
 
     }
 
@@ -54,12 +58,12 @@ public class PageAccessTest {
     public void salesmanagerContractPage() {
 
         LoginUtil.login(driver, "salesmanager270", "UserUser123");
-        Wait.sleep(2);
+       // Wait.sleep(2);
         NavigateToTab.navigateToModule(driver, "Fleet", "Vehicle Contracts");
 
-        String actualPage = driver.getTitle();
-        System.out.println(actualPage);
-        String expectedPage = "All - Vehicle Contract - Entities - System - Car - Entities - System";
+        String actualPage = driver.findElement(By.cssSelector("h1[class='oro-subtitle']")).getText();
+
+        String expectedPage = "All Vehicle Contract";
         Assert.assertEquals(actualPage, expectedPage);
 
 
@@ -69,7 +73,7 @@ public class PageAccessTest {
     public void driverContractPage() {
 
         LoginUtil.login(driver, "user170", "UserUser123");
-        Wait.sleep(2);
+       // Wait.sleep(2);
         NavigateToTab.navigateToModule(driver, "Fleet", "Vehicle Contracts");
 
         Assert.assertTrue(driver.findElement(By.className("message")).isDisplayed());

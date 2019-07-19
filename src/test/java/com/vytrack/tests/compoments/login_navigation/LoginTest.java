@@ -39,6 +39,7 @@ public class LoginTest {
 
         driver.get("http://qa2.vytrack.com/user/login");
 
+
     }
 
     @Test (priority = 1)
@@ -46,41 +47,41 @@ public class LoginTest {
 
         //Store manager Login
         LoginUtil.login(driver, "storemanager209", "UserUser123");
-        Wait.sleep(2);
+        //Wait.sleep(2);
 
         String actualPageTitle = driver.findElement(By.className("oro-subtitle")).getText();
         String expectedPageTitle = "Dashboard";
         Assert.assertEquals(actualPageTitle, expectedPageTitle);
 
         driver.findElement(By.cssSelector("[class='dropdown user-menu-dropdown'] a")).click();
-        Wait.sleep(2);
+       // Wait.sleep(2);
         String storeManagerName = driver.findElement(By.id("user-menu")).getText();
 
         Assert.assertTrue(driver.findElement(By.id("user-menu")).isDisplayed());
-        Wait.sleep(2);
+        //Wait.sleep(2);
         driver.findElement(By.linkText("Logout")).click();
-        Wait.sleep(1);
+       // Wait.sleep(1);
 
         //Salesman Login
         LoginUtil.login(driver, "salesmanager270", "UserUser123");
-        Wait.sleep(2);
+        //Wait.sleep(2);
         actualPageTitle = driver.findElement(By.className("oro-subtitle")).getText();
         expectedPageTitle = "Dashboard";
         Assert.assertEquals(actualPageTitle, expectedPageTitle);
 
         driver.findElement(By.cssSelector("[class='dropdown user-menu-dropdown'] a")).click();
-        Wait.sleep(2);
+       // Wait.sleep(2);
         String salesManagerName = driver.findElement(By.id("user-menu")).getText();
 
         Assert.assertNotEquals(storeManagerName, salesManagerName);
-        Wait.sleep(2);
+      //  Wait.sleep(2);
         driver.findElement(By.linkText("Logout")).click();
-        Wait.sleep(1);
+       // Wait.sleep(1);
 
 
         // Driver Login
         LoginUtil.login(driver, "user170", "UserUser123");
-        Wait.sleep(2);
+        //Wait.sleep(2);
 
         actualPageTitle = driver.findElement(By.className("oro-subtitle")).getText();
         expectedPageTitle = "Quick Launchpad";
@@ -94,7 +95,7 @@ public class LoginTest {
         Assert.assertNotEquals(driverName,storeManagerName);
 
         driver.findElement(By.linkText("Logout")).click();
-        Wait.sleep(1);
+       // Wait.sleep(1);
 
 
     }
